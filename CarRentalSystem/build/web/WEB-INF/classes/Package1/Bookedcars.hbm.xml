@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 11, 2018 8:53:42 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Package1.Bookedcars" table="bookedcars" catalog="test" optimistic-lock="version">
+        <id name="srNo" type="int">
+            <column name="SrNo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cars" class="Package1.Cars" fetch="select">
+            <column name="CarID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="Package1.Users" fetch="select">
+            <column name="UserID" not-null="true" />
+        </many-to-one>
+        <property name="rent" type="int">
+            <column name="Rent" not-null="true" />
+        </property>
+        <property name="dateOfRenting" type="date">
+            <column name="DateOfRenting" length="10" not-null="true" />
+        </property>
+        <property name="dateOfReturn" type="date">
+            <column name="DateOfReturn" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
